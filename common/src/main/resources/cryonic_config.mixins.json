@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.cryonicconfig.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "client.ClientPlayNetworkHandlerMixin",
+    "client.MainMixin",
+    "client.MinecraftMixin"
+  ],
+  "mixins": [
+    "server.MainMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
