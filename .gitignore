@@ -1,11 +1,35 @@
-# Project exclude paths
-/.idea/
-/.gradle/
-/common/.gradle/
-/common/build/
-/fabric/.gradle/
-/fabric/build/
-/fabric/run/
-/neoforge/.gradle/
-/neoforge/build/
-/neoforge/run/
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/*
+# Remove the following line to remove server.properties from your project.
+!server.properties

@@ -16,7 +16,7 @@ ConfigStorage config = CryonicConfig.getConfig("mod_id");
 config.getInt("varName", 3);
 config.getDouble("name", 3.3);
 config.getBoolean("var", true);
-config.getString("str", "Geronimo!")
+config.getString("str", "Geronimo!");
 
 // The variable will exist locally on client and server
 // If you want a connected server player to use a server config

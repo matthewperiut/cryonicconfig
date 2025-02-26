@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "cryonic_config",
+  "version": "${version}",
+  "name": "Cryonic Config",
+  "description": "Chill Minimal Config API",
+  "authors": [
+    "Slainlight"
+  ],
+  "contact": {
+    "sources": "https://github.com/matthewperiut/cryonic_config"
+  },
+  "license": "MIT",
+  "icon": "assets/cryonic_config/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "stationapi:event_bus": [
+    ],
+    "stationapi:event_bus_client": [
+    ],
+    "stationapi:event_bus_server": [
+    ]
+  },
+  "mixins": [
+    "cryonic_config.mixins.json"
+  ],
+
+  "depends": {
+    "minecraft": "1.0.0-beta.7.3"
+  }
+}
