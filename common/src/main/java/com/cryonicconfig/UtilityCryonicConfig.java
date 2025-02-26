@@ -35,9 +35,16 @@ public final class UtilityCryonicConfig {
                 if (configMappings != null) {
                     for (Map.Entry<String, String> entry : configMappings.entrySet()) {
                         String modId = entry.getKey();
+                        String configFileName = entry.getValue();         // e.g. "my_mod.json"
+                        String fullPath = UtilityCryonicConfig.dir + "/" + configFileName;
+
+                        // Create a ConfigStorage that actually loads the data
                         ConfigStorage configStorage = new ConfigStorage(modId);
+                        configStorage.loadFromFile(fullPath);
+
                         LOCAL_CONFIG.put(modId, configStorage);
                     }
+
                 }
             } catch (IOException e) {
                 e.printStackTrace();
