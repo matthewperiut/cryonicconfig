@@ -9,7 +9,6 @@
     "client.MinecraftMixin"
   ],
   "mixins": [
-    "PlayerEntityMixin",
     "server.MainMixin"
   ],
   "injectors": {
