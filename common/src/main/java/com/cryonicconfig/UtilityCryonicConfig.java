@@ -35,11 +35,7 @@ public final class UtilityCryonicConfig {
                 if (configMappings != null) {
                     for (Map.Entry<String, String> entry : configMappings.entrySet()) {
                         String modId = entry.getKey();
-                        String configFileName = entry.getValue(); // Should be "mod_a.json"
-
-                        // Convert file name to full path dynamically
-                        String fullPath = UtilityCryonicConfig.dir + "/" + configFileName;
-                        ConfigStorage configStorage = new ConfigStorage(fullPath);
+                        ConfigStorage configStorage = new ConfigStorage(modId);
                         LOCAL_CONFIG.put(modId, configStorage);
                     }
                 }
