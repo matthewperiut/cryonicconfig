@@ -1,6 +1,6 @@
-package com.cryonicconfig.mixin;
+package com.periut.cryonicconfig.mixin;
 
-import com.cryonicconfig.CryonicConfig;
+import com.periut.cryonicconfig.CryonicConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.player.PlayerEntity;

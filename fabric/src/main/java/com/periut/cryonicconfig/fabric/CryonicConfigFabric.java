@@ -1,4 +1,4 @@
-package com.cryonicconfig.fabric;
+package com.periut.cryonicconfig.fabric;
 
 import net.fabricmc.api.ModInitializer;
 

@@ -1,4 +1,4 @@
-package com.cryonicconfig;
+package com.periut.cryonicconfig;
 
 import com.google.gson.*;
 import net.minecraft.entity.player.PlayerEntity;
