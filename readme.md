@@ -3,8 +3,38 @@
 - Specifically targeting ease of use and portability
 - Cryonic because it's cool as hell
 
+# Explanation of Functionality
+- This will store jsons in {minecraft_dir}/config as "mod_id.json"
+- All config files will be read by dictionary in "cryonicconfig.json" on early init
+- Configs are only configurable by editing the jsons directly, no plans of GUI config
+- For ease of portability, synced variables are sent directly to a player in chat, and intercepted
+- Hashmaps are used to look up Str to ConfigStorage and Str to Obj (variable)
+
 # API
-Simple Usage:
+## Groovy (build.gradle) Add Dependency
+Add Maven:  
+```groovy
+repositories {
+    maven { url "https://maven.periut.com/" }
+}
+```
+Modern/Architectury:  
+For only fabric or neoforge, replace `${project.name}` with `fabric`,`forge`,`neoforge`
+```groovy
+dependencies {
+    modImplementation "com.periut.cryonicconfig:cryonicconfig-${project.name}:1.0.0+mc${rootProject.minecraft_version}"
+}
+```
+
+b1.7.3:
+```groovy
+dependencies {
+    modImplementation "com.periut.cryonicconfig:cryonicconfig-babric:1.0.0+mcb1.7.3"
+}
+```
+
+## Simple Usage:
+
 ```java
 // You can store or use on the fly, this can be called anywhere
 ConfigStorage config = CryonicConfig.getConfig("mod_id");
@@ -31,12 +61,24 @@ CryonicConfig.getConfig("mod_id").getInt("varName", 3);
 config.setInt("varName", 3);
 config.setDouble("name", 3.3);
 config.setBoolean("var", true);
-config.setString("str", "Geronimo!")
+config.setString("str", "Geronimo!");
 ```
 
-# Explanation of Functionality
-- This will store jsons in {minecraft_dir}/config as "mod_id.json"
-- All config files will be read by dictionary in "cryonicconfig.json" on early init
-- Configs are only configurable by editing the jsons directly, no plans of GUI config
-- For ease of portability, synced variables are sent directly to a player in chat, and intercepted
-- Hashmaps are used to look up Str to ConfigStorage and Str to Obj (variable)
+## Mark Dependency
+In `fabric.mod.json`:
+```json
+{
+  "depends": {
+    "cryonicconfig": "*"
+  }
+}
+```
+
+
+In `mods.toml`/`neoforge.mods.toml`:
+```toml
+[[dependencies.cryonicconfig]]
+modId = "cryonicconfig"
+type = "required"
+versionRange = "[0,)"
+```
