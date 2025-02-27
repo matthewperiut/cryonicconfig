@@ -1,6 +1,6 @@
-package com.cryonicconfig.mixin.server;
+package com.periut.cryonicconfig.mixin.server;
 
-import com.cryonicconfig.UtilityCryonicConfig;
+import com.periut.cryonicconfig.UtilityCryonicConfig;
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

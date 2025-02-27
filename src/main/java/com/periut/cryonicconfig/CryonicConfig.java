@@ -1,7 +1,7 @@
-package com.cryonicconfig;
+package com.periut.cryonicconfig;
 
-import static com.cryonicconfig.UtilityCryonicConfig.LOCAL_CONFIG;
-import static com.cryonicconfig.UtilityCryonicConfig.SERVER_CONFIG;
+import static com.periut.cryonicconfig.UtilityCryonicConfig.LOCAL_CONFIG;
+import static com.periut.cryonicconfig.UtilityCryonicConfig.SERVER_CONFIG;
 
 public class CryonicConfig {
     public static ConfigStorage getConfig(String mod_id) {

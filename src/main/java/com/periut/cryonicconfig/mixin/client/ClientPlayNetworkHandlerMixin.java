@@ -1,6 +1,6 @@
-package com.cryonicconfig.mixin.client;
+package com.periut.cryonicconfig.mixin.client;
 
-import com.cryonicconfig.UtilityCryonicConfig;
+import com.periut.cryonicconfig.UtilityCryonicConfig;
 import net.minecraft.client.network.ClientNetworkHandler;
 import net.minecraft.network.packet.play.ChatMessagePacket;
 import org.spongepowered.asm.mixin.Mixin;
