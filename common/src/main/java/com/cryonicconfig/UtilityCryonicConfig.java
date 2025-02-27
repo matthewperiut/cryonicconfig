@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.util.*;
 
 public final class UtilityCryonicConfig {
-    public static final String MOD_ID = "cryonic_config";
+    public static final String MOD_ID = "cryonicconfig";
 
     // Map to store all mod configs
     public static final HashMap<String, ConfigStorage> SERVER_CONFIG = new HashMap<>();
@@ -24,7 +24,7 @@ public final class UtilityCryonicConfig {
             configDir.mkdirs();
         }
 
-        File mainConfigFile = new File(configDir, "cryonic_config.json");
+        File mainConfigFile = new File(configDir, "cryonicconfig.json");
 
         if (mainConfigFile.exists()) {
             // Load existing mappings of mod IDs to config file names (not full paths!)
@@ -69,8 +69,8 @@ public final class UtilityCryonicConfig {
             configStorage.saveToFile(fullPath);
         }
 
-        // Save the cryonic_config.json which maps mod IDs to filenames
-        try (Writer writer = new FileWriter(UtilityCryonicConfig.dir + "/cryonic_config.json")) {
+        // Save the cryonicconfig.json which maps mod IDs to filenames
+        try (Writer writer = new FileWriter(UtilityCryonicConfig.dir + "/cryonicconfig.json")) {
             gson.toJson(configMappings, writer);
         } catch (IOException e) {
             e.printStackTrace();

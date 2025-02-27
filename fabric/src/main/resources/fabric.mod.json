@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "cryonic_config",
+  "id": "cryonicconfig",
   "version": "${version}",
   "name": "Cryonic Config",
   "description": "Chill Minimal Config API",
@@ -8,10 +8,10 @@
     "Slainlight"
   ],
   "contact": {
-    "sources": "https://github.com/matthewperiut/cryonic_config"
+    "sources": "https://github.com/matthewperiut/cryonicconfig"
   },
   "license": "MIT",
-  "icon": "assets/cryonic_config/icon.png",
+  "icon": "assets/cryonicconfig/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -19,7 +19,7 @@
     ]
   },
   "mixins": [
-    "cryonic_config.mixins.json"
+    "cryonicconfig.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",

@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'cryonic_config'
+rootProject.name = 'cryonicconfig'
 
 include 'common'
 include 'fabric'

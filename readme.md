@@ -36,7 +36,7 @@ config.setString("str", "Geronimo!")
 
 # Explanation of Functionality
 - This will store jsons in {minecraft_dir}/config as "mod_id.json"
-- All config files will be read by dictionary in "cryonic_config.json" on early init
+- All config files will be read by dictionary in "cryonicconfig.json" on early init
 - Configs are only configurable by editing the jsons directly, no plans of GUI config
 - For ease of portability, synced variables are sent directly to a player in chat, and intercepted
 - Hashmaps are used to look up Str to ConfigStorage and Str to Obj (variable)
