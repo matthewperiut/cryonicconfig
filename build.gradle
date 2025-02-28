@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.architectury.loom' version '1.7-SNAPSHOT' apply false
+    id 'dev.architectury.loom' version '1.6-SNAPSHOT' apply false
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
 }
@@ -7,19 +7,10 @@ plugins {
 architectury {
     minecraft = project.minecraft_version
 }
-def createVersionString() {
-    def builder = new StringBuilder()
-
-    builder.append(mod_version)
-
-    builder.append('+mc').append(minecraft_version)
-
-    return builder.toString()
-}
 
 allprojects {
-    version = createVersionString()
     group = rootProject.maven_group
+    version = rootProject.mod_version
 }
 
 subprojects {
@@ -42,10 +33,7 @@ subprojects {
 
     dependencies {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
-        mappings loom.layered {
-            it.mappings("net.fabricmc:yarn:$rootProject.yarn_mappings:v2")
-            it.mappings("dev.architectury:yarn-mappings-patch-neoforge:$rootProject.yarn_mappings_patch_neoforge_version")
-        }
+        mappings "net.fabricmc:yarn:$rootProject.yarn_mappings:v2"
     }
 
     java {
@@ -54,12 +42,12 @@ subprojects {
         // If you remove this line, sources will not be generated.
         withSourcesJar()
 
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     tasks.withType(JavaCompile).configureEach {
-        it.options.release = 21
+        it.options.release = 17
     }
 
     // Configure Maven publishing.

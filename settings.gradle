@@ -11,4 +11,5 @@ rootProject.name = 'cryonicconfig'
 
 include 'common'
 include 'fabric'
+include 'forge'
 include 'neoforge'

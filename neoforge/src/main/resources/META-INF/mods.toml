@@ -1,0 +1,28 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+issueTrackerURL = "https://github.com/matthewperiut/cryonicconfig/issues"
+license = "MIT"
+
+[[mods]]
+modId = "cryonicconfig"
+version = "${version}"
+displayName = "Cryonic Config"
+authors = "Slainlight"
+description = '''
+Chill Minimal Config API
+'''
+logoFile = "assets/cryonicconfig/logo.png"
+
+[[dependencies.cryonicconfig]]
+modId = "neoforge"
+type = "required"
+versionRange = "[20.4,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.cryonicconfig]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.20,1.20.4]"
+ordering = "NONE"
+side = "BOTH"

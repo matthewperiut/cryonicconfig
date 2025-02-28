@@ -9,5 +9,8 @@
 /neoforge/.gradle/
 /neoforge/build/
 /neoforge/run/
+/forge/.gradle/
+/forge/build/
+/forge/run/
 /run/
 /build/
