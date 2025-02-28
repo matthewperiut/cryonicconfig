@@ -13,7 +13,7 @@ public class ClientPlayNetworkHandlerMixin {
 
     @Inject(method = "onGameMessage", at = @At("HEAD"), cancellable = true)
     private void interceptSyncMessage(GameMessageS2CPacket packet, CallbackInfo ci) {
-        String msgContent = packet.content().getString();
+        String msgContent = packet.getMessage().getString();
 
         // Check if it's a config sync message
         if (msgContent.startsWith("ccsync:")) {
