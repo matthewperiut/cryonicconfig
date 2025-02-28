@@ -1,17 +1,17 @@
 modLoader = "javafml"
 loaderVersion = "[2,)"
-#issueTrackerURL = ""
-license = "Insert License Here"
+issueTrackerURL = "https://github.com/matthewperiut/cryonicconfig/issues"
+license = "MIT"
 
 [[mods]]
 modId = "cryonicconfig"
 version = "${version}"
 displayName = "Cryonic Config"
-authors = "Me!"
+authors = "Slainlight"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Chill Minimal Config API
 '''
-#logoFile = ""
+logoFile = "assets/cryonicconfig/logo.png"
 
 [[dependencies.cryonicconfig]]
 modId = "neoforge"
