@@ -7,10 +7,19 @@ plugins {
 architectury {
     minecraft = project.minecraft_version
 }
+def createVersionString() {
+    def builder = new StringBuilder()
+
+    builder.append(mod_version)
+
+    builder.append('+mc').append(minecraft_version)
+
+    return builder.toString()
+}
 
 allprojects {
+    version = createVersionString()
     group = rootProject.maven_group
-    version = rootProject.mod_version
 }
 
 subprojects {

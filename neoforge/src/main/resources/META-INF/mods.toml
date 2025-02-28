@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[2,)"
+loaderVersion = "[0,)"
 issueTrackerURL = "https://github.com/matthewperiut/cryonicconfig/issues"
 license = "MIT"
 
@@ -16,7 +16,7 @@ logoFile = "assets/cryonicconfig/logo.png"
 [[dependencies.cryonicconfig]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.4,)"
+versionRange = "[0,)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -26,3 +26,6 @@ type = "required"
 versionRange = "[1.20,1.20.4]"
 ordering = "NONE"
 side = "BOTH"
+
+[[mixins]]
+config = "cryonicconfig.mixins.json"

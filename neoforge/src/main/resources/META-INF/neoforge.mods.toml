@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[2,)"
+loaderVersion = "[0,)"
 issueTrackerURL = "https://github.com/matthewperiut/cryonicconfig/issues"
 license = "MIT"
 
