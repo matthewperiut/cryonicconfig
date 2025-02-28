@@ -16,7 +16,7 @@ logoFile = "assets/cryonicconfig/logo.png"
 [[dependencies.cryonicconfig]]
 modId = "forge"
 mandatory = true
-versionRange = "[49,)"
+versionRange = "[0,)"
 ordering = "NONE"
 side = "BOTH"
 

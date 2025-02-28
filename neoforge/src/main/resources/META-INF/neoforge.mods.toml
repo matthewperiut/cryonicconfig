@@ -16,14 +16,14 @@ logoFile = "assets/cryonicconfig/logo.png"
 [[dependencies.cryonicconfig]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.6,)"
+versionRange = "[0,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.cryonicconfig]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.20.5,1.20.6]"
+versionRange = "[1.20,1.20.4]"
 ordering = "NONE"
 side = "BOTH"
 
