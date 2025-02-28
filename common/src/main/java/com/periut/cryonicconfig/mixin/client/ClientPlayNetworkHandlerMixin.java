@@ -35,4 +35,9 @@ public class ClientPlayNetworkHandlerMixin {
             }
         }
     }
+
+    @Inject(method = "clearWorld", at = @At("HEAD"))
+    void clearServerConfig(CallbackInfo ci) {
+        UtilityCryonicConfig.SERVER_CONFIG.clear();
+    }
 }

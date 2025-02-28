@@ -5,8 +5,7 @@
   "minVersion": "0.8",
   "client": [
     "client.ClientPlayNetworkHandlerMixin",
-    "client.MainMixin",
-    "client.MinecraftMixin"
+    "client.MainMixin"
   ],
   "mixins": [
     "server.MainMixin"
