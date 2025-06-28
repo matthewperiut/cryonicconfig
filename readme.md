@@ -15,21 +15,21 @@
 Add Maven:  
 ```groovy
 repositories {
-    maven { url "https://maven.periut.com/" }
+    maven { url "https://api.modrinth.com/maven" }
 }
 ```
 Modern/Architectury:  
 For only fabric or neoforge, replace `${project.name}` with `fabric`,`forge`,`neoforge`
 ```groovy
 dependencies {
-    modImplementation "com.periut.cryonicconfig:cryonicconfig-${project.name}:1.0.0+mc${rootProject.minecraft_version}"
+    modImplementation "maven.modrinth:cryonicconfig:fabric-${project.name}:1.0.0+mc${rootProject.minecraft_version}"
 }
 ```
 
 b1.7.3:
 ```groovy
 dependencies {
-    modImplementation "com.periut.cryonicconfig:cryonicconfig-babric:1.0.0+mcb1.7.3"
+    modImplementation "maven.modrinth:cryonicconfig:babric:1.0.0+mcb1.7.3"
 }
 ```
 
