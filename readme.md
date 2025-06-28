@@ -19,12 +19,25 @@ repositories {
 }
 ```
 Modern/Architectury:  
-For only fabric or neoforge, replace `${project.name}` with `fabric`,`forge`,`neoforge`
+For only fabric or neoforge, replace `${project.name}` with `fabric`,`forge`,`neoforge`- `fabric` is also used for common
 ```groovy
 dependencies {
     modImplementation "maven.modrinth:cryonicconfig:fabric-${project.name}:1.0.0+mc${rootProject.minecraft_version}"
 }
+```  
+For top level in an architectury project:
+```groovy
+dependencies {
+    if (project.name == "neoforge") {
+        modImplementation("maven.modrinth:cryonicconfig:neoforge-1.21.4-1.0.0")
+    } else if (project.name == "fabric") {
+        modImplementation("maven.modrinth:cryonicconfig:fabric-1.21.4-1.0.0")
+    } else {
+        modImplementation("maven.modrinth:cryonicconfig:fabric-1.21.4-1.0.0")
+    }
+}
 ```
+
 
 b1.7.3:
 ```groovy
