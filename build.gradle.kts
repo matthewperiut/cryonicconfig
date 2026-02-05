@@ -1,18 +1,13 @@
-import org.gradle.internal.extensions.stdlib.toDefaultLowerCase
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import java.net.URI
-import java.net.URL
 
 plugins {
 	id("maven-publish")
-	id("fabric-loom") version "1.9.2"
-	id("babric-loom-extension") version "1.9.3"
+	id("net.fabricmc.fabric-loom-remap") version "1.15.+"
+	id("ploceus") version "1.15-SNAPSHOT"
 }
 
-//noinspection GroovyUnusedAssignment
-java.sourceCompatibility = JavaVersion.VERSION_17
-java.targetCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_21
+java.targetCompatibility = JavaVersion.VERSION_21
 
 fun createVersionString(): String {
 	val modVersion = project.properties["mod_version"] as String
@@ -24,30 +19,31 @@ base.archivesName = project.properties["archives_base_name"] as String
 version = createVersionString()
 group = project.properties["maven_group"] as String
 
-loom {
-//	accessWidenerPath = file("src/main/resources/examplemod.accesswidener")
+ploceus {
+	setIntermediaryGeneration(2)
+}
 
+loom {
 	runs {
-		// If you want to make a testmod for your mod, right click on src, and create a new folder with the same name as source() below.
-		// Intellij should give suggestions for testmod folders.
 		register("testClient") {
 			source("test")
 			client()
-			configurations.transitiveImplementation
 		}
 		register("testServer") {
 			source("test")
 			server()
-			configurations.transitiveImplementation
 		}
 	}
 }
 
 repositories {
-	maven("https://maven.glass-launcher.net/snapshots/")
+	mavenLocal()
 	maven("https://maven.glass-launcher.net/releases/")
-	maven("https://maven.glass-launcher.net/babric")
+	maven("https://mvn.devos.one/releases")
+	maven("https://maven.glass-launcher.net/snapshots/")
+	maven("https://maven.ornithemc.net/releases")
 	maven("https://maven.minecraftforge.net/")
+	maven("https://matthewperiut.github.io/repository")
 	maven("https://jitpack.io/")
 	mavenCentral()
 	exclusiveContent {
@@ -61,9 +57,17 @@ repositories {
 }
 
 dependencies {
-	minecraft("com.mojang:minecraft:b1.7.3")
-	mappings("net.glasslauncher:biny:${project.properties["yarn_mappings"]}:v2")
-	modImplementation("babric:fabric-loader:${project.properties["loader_version"]}")
+	minecraft("com.mojang:minecraft:${project.properties["minecraft_version"]}")
+	mappings(ploceus.mappings("net.glasslauncher:biny-ornithe:b1.7.3+build.${project.properties["biny_mappings"]}:mergedv2"))
+
+	"clientExceptions"(ploceus.raven(project.properties["client_raven_build"] as String, "client"))
+	"serverExceptions"(ploceus.raven(project.properties["server_raven_build"] as String, "server"))
+	"clientSignatures"(ploceus.sparrow(project.properties["client_sparrow_build"] as String, "client"))
+	"serverSignatures"(ploceus.sparrow(project.properties["server_sparrow_build"] as String, "server"))
+	"clientNests"("net.glasslauncher:biny-nests:b1.7.3-client+build.2")
+	"serverNests"("net.glasslauncher:biny-nests:b1.7.3-server+build.2")
+
+	modImplementation("net.fabricmc:fabric-loader:${project.properties["loader_version"]}")
 
 	implementation("org.apache.logging.log4j:log4j-core:2.17.2")
 
@@ -80,7 +84,14 @@ dependencies {
 	implementation("com.google.guava:guava:33.2.1-jre")
 
 	implementation("com.google.code.gson:gson:2.9.0")
+	modImplementation("com.periut:starac:${project.properties["starac_verion"]}")
 }
+
+// Exclude Legacy Fabric LWJGL 2 wrapper (starac provides LWJGL 3)
+configurations.configureEach {
+	exclude(group = "org.lwjgl.lwjgl")
+}
+
 
 tasks.withType<ProcessResources> {
 	inputs.property("version", project.properties["version"])
@@ -95,6 +106,7 @@ tasks.withType<ProcessResources> {
 // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
 tasks.withType<JavaCompile> {
 	options.encoding = "UTF-8"
+	options.release = 21
 }
 
 java {
