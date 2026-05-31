@@ -1,12 +1,11 @@
 package com.periut.cryonicconfig;
 
 import com.google.gson.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.text.Text;
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 
 public class ConfigStorage {
     private final Map<String, Object> configData = new HashMap<>();
@@ -133,18 +132,18 @@ public class ConfigStorage {
     }
 
     // Sync method now includes mod_id in messages
-    public void sync(String key, PlayerEntity player) {
+    public void sync(String key, Player player) {
         if (!configData.containsKey(key))
             return;
 
-        if (!player.isMainPlayer()) {
+        if (!player.isLocalPlayer()) {
             Object o = configData.get(key);
             if (o instanceof Number n) {
-                player.sendMessage(Text.of("ccsync:" + modId + ":" + key + ":" + n), false);
+                player.sendSystemMessage(Component.nullToEmpty("ccsync:" + modId + ":" + key + ":" + n));
             } else if (o instanceof Boolean b) {
-                player.sendMessage(Text.of("ccsync:" + modId + ":" + key + ":" + b), false);
+                player.sendSystemMessage(Component.nullToEmpty("ccsync:" + modId + ":" + key + ":" + b));
             } else if (o instanceof String s) {
-                player.sendMessage(Text.of("ccsync:" + modId + ":" + key + ":" + s), false);
+                player.sendSystemMessage(Component.nullToEmpty("ccsync:" + modId + ":" + key + ":" + s));
             }
         }
     }

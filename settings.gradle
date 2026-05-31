@@ -1,14 +1,16 @@
 pluginManagement {
     repositories {
-        maven { url "https://maven.fabricmc.net/" }
-        maven { url "https://maven.architectury.dev/" }
-        maven { url "https://files.minecraftforge.net/maven/" }
         gradlePluginPortal()
+        mavenCentral()
+        maven { name = 'Fabric'; url = uri('https://maven.fabricmc.net/') }
+        maven { name = 'NeoForged'; url = uri('https://maven.neoforged.net/releases/') }
+        maven { name = 'Sponge'; url = uri('https://repo.spongepowered.org/repository/maven-public/') }
     }
 }
 
 rootProject.name = 'cryonicconfig'
-
-include 'common'
-include 'fabric'
-include 'neoforge'
+// Architectury (arch-loom) does not support unobfuscated 26.1 yet (architectury-loom#328),
+// so we use fabric-loom for Fabric and ModDevGradle for NeoForge. The shared 'common'
+// source is included into each platform via srcDir (names are official on both loaders).
+include('fabric')
+include('neoforge')
